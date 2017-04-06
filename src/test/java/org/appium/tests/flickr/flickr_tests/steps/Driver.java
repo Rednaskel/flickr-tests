@@ -1,4 +1,4 @@
-package org.appium.tests.flickr.flickr_tests.driver;
+package org.appium.tests.flickr.flickr_tests.steps;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -6,7 +6,6 @@ import java.net.URL;
 import org.appium.tests.flickr.flickr_tests.constants.Constants;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 

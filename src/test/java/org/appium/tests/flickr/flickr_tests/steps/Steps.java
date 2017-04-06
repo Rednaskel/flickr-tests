@@ -1,7 +1,6 @@
-package org.appium.tests.flickr.flickr_tests;
+package org.appium.tests.flickr.flickr_tests.steps;
 
 
-import org.appium.tests.flickr.flickr_tests.driver.Driver;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,5 +15,4 @@ public class Steps extends Driver{
 		keyboardSearchButton.click();
 
 	}
-	
 }
