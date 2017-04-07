@@ -51,7 +51,7 @@ public class Steps {
 	    FlickrApiHelper apiHelper = new FlickrApiHelper();
 	    List<String> titlesFromApi = apiHelper.getTitlesFromJsonResponse(query);
 	    
-	    List<WebElement> titlesElements = driverWrapper.driver.findElements(By.xpath("//UIACollectionCell/UIAStaticText"));
+	    List<WebElement> titlesElements = driverWrapper.getAllTitleElements();
 	    List<String> titlesFromElements = titlesElements.stream()
 	    		.map(titleElement -> titleElement.getAttribute("label")).collect(Collectors.toList());
 	    
