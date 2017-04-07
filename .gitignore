@@ -2,6 +2,3 @@
 .project
 .settings
 target
-
-#not sure if allowed to upload flickr app
-src/test/resources/FlickrBrowser-cal.app
