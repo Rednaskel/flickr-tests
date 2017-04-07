@@ -16,7 +16,6 @@ public class FlickrApiHelper {
 	}
 	
 	public List<String> getTitlesFromJsonResponse(String query) throws Exception {		
-		System.out.println("QUERY QUERY '" + query + "'");
 		JsonPath response = getJsonFromQuery(query);
 		return response.get("items.title");
 	}

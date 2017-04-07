@@ -2,12 +2,9 @@ package org.appium.tests.flickr.flickr_tests.steps;
 
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.appium.tests.flickr.flickr_tests.driver.DriverWrapper;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,6 +13,8 @@ import api.helper.FlickrApiHelper;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import static org.assertj.core.api.Assertions.*;
 
 @ContextConfiguration("classpath:cucumber.xml")
 public class Steps {
@@ -54,9 +53,7 @@ public class Steps {
 	    List<WebElement> titlesElements = driverWrapper.getAllTitleElements();
 	    List<String> titlesFromElements = titlesElements.stream()
 	    		.map(titleElement -> titleElement.getAttribute("label")).collect(Collectors.toList());
-	    
-	    System.out.println(titlesElements.get(0).getAttribute("label"));
-
+	    assertThat(titlesFromElements).isEqualTo(titlesFromApi);
 	}
 	
 }
