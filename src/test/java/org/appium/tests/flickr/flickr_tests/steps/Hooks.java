@@ -30,11 +30,15 @@ public class Hooks {
 	
 	@Before
 	public void startApplication() throws MalformedURLException {
-		if(!driverWrapper.isInitialised()) {
+		if(!driverWrapper.isInitialised()) {			
+			String platformName = getDefaultIfNull(System.getProperty("platformName"), "iOS");
+			String deviceName = getDefaultIfNull(System.getProperty("deviceName"), "iPhone 6");
+			String platformVersion = getDefaultIfNull(System.getProperty("platformVersion"), "9.3");
+	
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setCapability("platformName", "iOS");
-			capabilities.setCapability("deviceName", "iPhone 6");
-			capabilities.setCapability("platformVersion", "9.3");
+			capabilities.setCapability("platformName", platformName);
+			capabilities.setCapability("deviceName", deviceName);
+			capabilities.setCapability("platformVersion", platformVersion);
 			capabilities.setCapability("app", Constants.applicationUnderTestPath);
 			capabilities.setCapability("browserName", "");
 			capabilities.setCapability("deviceOrientation", "portrait");
@@ -49,5 +53,12 @@ public class Hooks {
 				}
 			});
 		}
+	}
+	
+	private String getDefaultIfNull(String value, String defaultValue) {
+		if(value != null) {
+			return value;
+		}
+		return defaultValue;
 	}
 }
